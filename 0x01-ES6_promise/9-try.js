@@ -1,11 +1,12 @@
 export default function guardrail(mathFunction) {
-  /*eslint-disable*/
-  const waitlist = [];
+  const queue = [];
+
   try {
-    const value = mathFunction();
-    waitlist.push(value, 'Guardrail was processed');
-  } catch (e) {
-    waitlist.push(`Error: ${e.message}`, 'Guardrail was processed');
+    queue.push(mathFunction());
+  } catch (err) {
+    queue.push(err.toString());
+  } finally {
+    queue.push('Guardrail was processed');
   }
-  return waitlist;
+  return queue;
 }
