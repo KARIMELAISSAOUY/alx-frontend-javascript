@@ -1,6 +1,6 @@
 export default function updateUniqueItems(map) {
   const list = map;
-//map
+
   if (list instanceof Map) {
     for (const [key, value] of list) {
       if (value === 1) {
